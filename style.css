@@ -1,0 +1,152 @@
+
+html{
+    height:100vh;
+    
+    font-size: 3vmin !important;
+    position:relative;
+
+    
+    
+}
+html:after{
+    content: "";
+    background: linear-gradient(to left top, rgb(146, 228, 255) 0%, rgb(146, 228, 255) 33%,rgb(255, 149, 149) 33%,rgb(255, 149, 149) 66%, rgb(146, 228, 255) 66%, rgb(146, 228, 255) 100%);
+    position:absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-size: 165% 165%;
+    background-position: 0% 0%;
+    transition: all;
+    transition-duration: 3s;
+    transition-timing-function: ease;
+}
+
+html.addition:after{
+    background-position: 99% 99%;
+}
+*{
+    box-sizing: content-box;
+}
+.menu{
+    display:grid;
+    grid-template-areas: "pick1 showcase"
+                         "pick2 showcase"
+                         "pick3 showcase"
+                         "pick4 showcase"
+                         "pick5 showcase"
+                         "pick6 showcase";
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(6,1fr);
+    row-gap: 4vmin;
+    margin-top:5vmin;
+    justify-items: center;
+    height:70vh;
+}
+.menu div:hover{
+    padding-left:0.6vmax;
+    cursor: pointer;
+}
+h1{
+    margin:2vh auto !important;
+    padding-bottom:2vh;
+    text-align: center;
+    font-size:4vmax !important;
+    font-family: 'Oswald', sans-serif;
+    position: relative;
+    z-index: 5;
+    margin-top:0vh !important;
+}
+h1:hover{
+    filter: brightness(1000%);
+}
+i{
+    width:1rem;
+}
+a{
+    color:black !important;
+    text-decoration:none !important;
+}
+div:hover > i, div:hover >a{
+    color:red !important;
+}
+img{
+    margin: auto auto;
+    border-width:inital !important;
+    height:30vmax !important;
+    width:30vmax !important;
+    outline-offset: 1vh;
+    outline: 1vmin double grey;
+    border-radius: 10%/10%;
+    
+    position: relative;
+    z-index: 5;
+}
+/* -------Pick1------- */
+.pick1Container{
+    grid-area: pick1;
+    
+}
+/* -------Pick2------- */
+.pick2Container{
+    grid-area: pick2;
+}
+/* -------Pick3------- */
+.pick3Container{
+    grid-area: pick3;
+}
+/* -------Pick4------- */
+.pick4Container{
+    grid-area: pick4;
+}
+/* -------Pick5------- */
+.pick5Container{
+    grid-area: pick5;
+}
+/* -------Pick6------- */
+.pick6Container{
+    grid-area: pick6;
+}
+/* -------ShowCase------- */
+.appShowcase{
+    grid-area: showcase;
+    width:40vmax;
+    height: 40vmax;
+}
+@media (max-width:460px) {
+    body{
+        font-size: 2.5vmin !important;
+    }
+    img{
+        height:30vmin !important;
+        width:30vmin !important;
+    }
+    h1{
+        font-size:4vmin !important;
+    }
+}
+@media (max-width:330px) {
+    body{
+        font-size: 2.5vmin !important;
+        align-items: center !important;
+        
+    }
+    .menu{
+        grid-template-columns: 1fr;
+        grid-template-areas: "pick1"
+        "pick2"
+        "pick3"
+        "pick4"
+        "pick5"
+        "pick6";
+        
+    }
+    img{
+        height:30vmin !important;
+        width:30vmin !important;
+    }
+    h1{
+        padding-top: 1vh !important;
+    }
+}

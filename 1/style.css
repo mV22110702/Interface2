@@ -1,0 +1,182 @@
+-root {
+  --padding: 10vmax;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500&display=swap');
+
+body {
+  height: 100vh;
+  font-size: 4vmax;
+  display: grid;
+  grid-column-gap: 1vw;
+  grid-template-columns: 1fr 0.5fr;
+  grid-template-areas: "h1 h1"
+    "interface table";
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  background: linear-gradient(155deg, rgba(0, 252, 255, 1) 0%, rgba(255, 232, 15, 1) 100%);
+  background-size: 200% 200%;
+  animation: flashyBack 5s ease-in-out infinite;
+}
+
+.gameInterface {
+  grid-area: interface;
+  margin: 20vh auto;
+  height: fit-content;
+  justify-content: center;
+  align-content: center;
+  display: grid;
+  grid-template-areas: "board1 menu board2";
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-column-gap: 3%;
+}
+
+.gameInterface::after {
+  padding-bottom: 100%;
+}
+
+.playerBoard1,
+.playerBoard2 {
+  display: grid;
+  grid-template-rows: 1fr 1fr 100%;
+  grid-row-gap: 5%;
+  padding: var(--padding);
+}
+
+.playerBoard1 {
+  grid-area: board1;
+}
+
+.playerBoard2 {
+  grid-area: board2;
+}
+
+#userName1,
+#userName2 {
+  margin-bottom: initial;
+  display: inline;
+  font-size: inherit;
+  font-weight: bolder;
+  text-align: center;
+}
+
+#userScore1,
+#userScore2 {
+  text-align: center;
+  width: 100%;
+  font-size: inherit;
+  border: initial;
+  border-radius: 8%;
+  background-color: aqua;
+}
+
+#userNumber1,
+#userNumber2 {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border: 0.3vmax solid black;
+  border-radius: 100%;
+  background-color: yellow;
+  height: 0;
+  padding-bottom: 100%;
+
+}
+
+span {
+  display: inline-block;
+  margin: auto;
+}
+
+.menu {
+  width: 100%;
+  grid-area: menu;
+  display: grid;
+  grid-template-rows: repeat(2, min-content);
+  grid-row-gap: 5%;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.menu button {
+  width: auto;
+  height: min-content;
+}
+
+#generator {
+  font-size: inherit;
+  border: initial;
+  border-radius: 8%;
+  background-color: lime;
+}
+
+#restart {
+  font-size: inherit;
+  border: initial;
+  border-radius: 8%;
+  background-color: aqua;
+}
+
+#gameName {
+  grid-area: h1;
+  margin: 10vh auto 0 auto;
+  background: green;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: flashyText 5s ease-in-out infinite;
+  filter: hue-rotate(360deg);
+  font-family: 'Bebas Neue';
+  font-size: 5vmax;
+}
+
+@keyframes flashyText {
+  from {
+    filter: hue-rotate(0deg);
+  }
+
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.scoreBoard {
+  grid-area: table;
+  margin-top: 20vh;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  font-size: 2vmax;
+  height: min-content;
+  width: fit-content;
+  justify-self: center;
+  align-self: start;
+  text-align: center;
+}
+
+@keyframes flashyBack {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@media (max-width:440px) {
+  body{
+    grid-column-gap: none;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 1fr 1fr;
+    grid-template-areas: "h1" "interface" "table";
+  }
+  table{
+    margin-top: 0 !important;
+    align-self: center !important;
+  }
+}

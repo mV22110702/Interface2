@@ -1,0 +1,208 @@
+-root {
+    --padding: 10vmax;
+  }
+  body{
+    font-family: "Arial Black", Gadget, sans-serif;
+  }
+  @keyframes hoverButton{
+    0%{
+      background: rgb(255,255,255);
+      background: radial-gradient(circle, rgba(255,255,255,0.9502071092108718) 5%, rgba(225,240,240,1) 22%, rgba(0,255,20,1) 100%);
+    }
+    100%{
+      background: rgb(255,255,255);
+      background: radial-gradient(circle, rgba(255,255,255,0.9502071092108718) 5%, rgba(225,240,240,1) 100%, rgba(0,255,20,1) 100%);
+    }
+  }
+  @keyframes activeTable {
+    from{
+      filter:hue-rotate(0deg);
+    }
+    to{
+      filter:hue-rotate(360deg);
+    }
+  }
+  .winner{
+    box-shadow: inset 2px 2px 1000em rgb(64, 244, 112);
+    background-color: rgba(255,255,255,0);
+    transition-duration: 1000ms;
+  }
+  .loser{
+    box-shadow: inset 2px 2px 1000em rgb(255, 53, 53);
+    color:white;
+    background-color: rgba(255,255,255,0);
+    transition-duration: 1000ms;
+  }
+  #generator:disabled{
+    font-size: inherit;
+    border:initial;
+    border-radius: 10px;
+    background-color: rgb(14, 227, 2);
+    color:grey;
+  }
+  body{
+    background-image: url('background.png');
+    background-size: 100% 100%;
+    background-position:center;
+    background-repeat:no-repeat;
+    height:98vh;
+    
+    padding:0 15vw;
+  }
+  div.program {
+    
+    margin: 2vh 0;
+    justify-items: center;
+    font-size: 2em;
+    display:grid;
+    grid-column-gap: 5vmin;
+    grid-template-columns:1fr;
+    align-content:center;
+    align-items:center;
+  }
+  .gameInterface {
+    align-content: center;
+    display: grid;
+    box-sizing: content-box;
+    width:min-content;
+    min-height: auto;
+    grid-template-areas: "board1 menu board2";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap:3%;
+  }
+  h1{
+    font-size: 1vmax;
+    background-color:aquamarine;
+    padding:1vmax;
+    border-radius: 17px;
+    margin: 0 auto;
+  }
+  .gameInterface::after{
+    padding-bottom:100%;
+  }
+  .playerBoard1,
+  .playerBoard2 {
+    display: grid;
+    grid-template-rows: 1fr 1fr 100%;
+    grid-row-gap:5%;
+    padding: var(--padding);
+  }
+  .playerBoard1{
+    grid-area:board1;
+  }
+  .playerBoard2{
+    grid-area:board2;
+  }
+  #userName1,
+  #userName2 {
+    margin-bottom:initial;
+    display:inline;
+    font-size: inherit;
+    font-weight: bolder;
+    text-align: center;
+  }
+  #userScore1,
+  #userScore2 {
+    text-align:center;
+    width:100%;
+    font-size: 3vmax;
+    border:initial;
+    border-radius: 17px;
+    background-color: aqua;
+  }
+  #userNumber1,
+  #userNumber2 {
+    padding-top:7vh;
+    box-sizing: content-box;
+    display:inline;
+    width:20vw;
+    min-height: 10vh;
+    background-size: contain;
+    background-repeat: round;
+    border: 2px solid black;
+    border-radius: 5%;
+    height:0;
+    padding-bottom: 100%;
+  }
+  .menu{
+    width:100%;
+    grid-area:menu;
+    display:grid;
+    grid-template-rows:repeat(2,min-content);
+    grid-row-gap:5%;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+    align-content:center;
+  }
+  .menu button{
+    font-size:2vmax !important;
+    width:auto;
+    height:min-content;
+  }
+  .menu button::after{
+    padding-bottom: 100%;
+  }
+  #generator{
+    font-size: inherit;
+    border:initial;
+    border-radius: 10px;
+    background-color: rgb(14, 227, 2);
+  }
+  #restart{
+    font-size: inherit;
+    border:initial;
+    border-radius: 10px;
+    background-color: aqua;
+  }
+  #showRecords{
+    font-size: inherit;
+    border:initial;
+    border-radius: 10px;
+    background-color: rgb(255, 157, 0);
+  }
+  #hideRecords{
+    font-size: inherit;
+    border:initial;
+    border-radius: 10px;
+    background-color: rgb(255, 157, 0);
+
+  }
+  .scoreBoard{
+    animation-name: activeTable;
+    animation-duration: 5500ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    filter:contrast(100%);
+    background-color: black !important;
+    text-align: center;
+    margin-top:3em;
+    font-size:initial;
+    height:min-content;
+    align-self:start;
+  }
+  @media screen and (max-width:700px){
+    #userNumber1,
+    #userNumber2{
+      background-size: contain;
+      background-repeat: round;
+    }
+    #gameInterface{
+      grid-template-columns: repeat(2,1fr);
+      grid-template-rows: 0.9fr 0.5fr;
+      grid-template-areas: "board1 board2"
+                           "menu menu";
+      grid-row-gap: 10vh;
+      grid-column-gap: 5vh;
+    }
+
+  }
+  @media screen and (max-width:510px) {
+    #gameInterface{
+      grid-column-gap: 10vh;
+    }
+    #userNumber1,
+    #userNumber2{
+      padding-top: initial;
+    }
+  }
