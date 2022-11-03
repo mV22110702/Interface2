@@ -13,6 +13,7 @@ function hoverFunc1(event){
     $(this).children("a").css("transform","translateX(-5vw)");
 
     $(".appShowcase").attr("src",`screens\\${num}.png`);
+    $(".appShowcase").attr("alt",`${num}`);
     $(".appShowcase").fadeIn(1000);
     }
 }
@@ -24,7 +25,9 @@ function hoverFunc2(event){
     $(this).children("a").css("transform",'translateX(0)');
     
     $(".appShowcase").hide();
+    $(".appShowcase").removeAttr("style");
     $(".appShowcase").removeAttr("src");
+    $(".appShowcase").removeAttr("alt");
     }
 }
 $('.appShowcase').prevAll().children("a").css({

@@ -78,8 +78,8 @@ img{
     width:30vmax !important;
     outline-offset: 1vh;
     outline: 1vmin double grey;
+    display: none;
     border-radius: 10%/10%;
-    
     position: relative;
     z-index: 5;
 }
